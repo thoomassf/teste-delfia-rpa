@@ -6,14 +6,14 @@
 [SQL Server Management Studio](https://learn.microsoft.com/pt-br/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16#download-ssms)
 
 
-**Clone o projeto e acesse a pasta**
+**Clonar o projeto e acessar a pasta**
 
 ```bash
 $ git clone https://github.com/thoomassf/teste-delfia-rpa.git && cd teste-delfia-rpa
 $ gh repo clone teste-delfia-rpa.git && cd teste-delfia-rpa
 ```
 
-**Instalar contêiner Docker**
+**Instalar contêiner do SQL Server no Docker**
 
 ```bash
 $ docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<senha>" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest
