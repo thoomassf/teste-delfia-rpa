@@ -1,6 +1,19 @@
 import pyodbc
+from dotenv import load_dotenv
+import os
 
-def inserir_voos_bd(dados, server, database, username, password):
+def inserir_voos_bd(dados):
+    # Carregue as variáveis de ambiente do arquivo .env
+    load_dotenv()
+    # Acesse as variáveis de ambiente
+    server = os.getenv("SERVER")
+    database = os.getenv("DATABASE")
+    username = os.getenv("USER")
+    password = os.getenv("PASSWORD")
+    
+    print(server, database, username, password)
+    
+    
     # Crie uma conexão pyodbc
     conn = pyodbc.connect(f"DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password}")
 
@@ -24,13 +37,8 @@ def inserir_voos_bd(dados, server, database, username, password):
     cursor.close()
     conn.close()
 
-# # Defina os detalhes de conexão
-# server = 'localhost,1433'  # Endereço do servidor e porta
-# database = 'DB_Voos'  # Nome do banco de dados
-# username = 'sa'  # Nome de usuário 'sa' (admin)
-# password = 'Senha123#'  # Senha definida durante a criação do contêiner SQL Server
-
-# # Dicionário com os dados
+# #Testar função
+# Dicionário com os dados
 # dic_voos = {
 #     'empresa': ['Empresa1', 'Empresa2'],
 #     'companhia_area': ['Companhia1', 'Companhia2'],
@@ -41,3 +49,5 @@ def inserir_voos_bd(dados, server, database, username, password):
 #     'data_hora_ida': ['01/11/23 12:00', '01/11/23 12:00'],
 #     'data_hora_volta': ['04/11/23 16:00', '04/11/23 16:00']
 # }
+
+# inserir_voos_bd(dic_voos)

@@ -121,22 +121,12 @@ def scraperCVC(url):
   for chave, valor in dic_voos.items():
     print(chave, ":", valor)
     
-  server = 'localhost,1433'  # Endereço do servidor e porta
-  database = 'DB_Voos'  # Nome do banco de dados
-  username = 'sa'  # Nome de usuário 'sa' (admin)
-  password = 'Senha123#'  # Senha definida durante a criação do contêiner SQL Server
-  # # Carregar as váriaveis em ambiente do arquivo .env
-  # # load_dotenv()
-  # # # Agora você pode acessar as variáveis de ambiente
-  # # db_host = os.getenv("DB_HOST")
-  # # db_port = os.getenv("DB_PORT")
-  # # db_user = os.getenv("DB_USER")
-  # # db_password = os.getenv("DB_PASSWORD")
-  # # Chamer métoto que insere os dados no banco
-  inserir_voos_bd(dic_voos, server, database, username, password)
+  # Chamada da função que vai inserir os dados no banco
+  inserir_voos_bd(dic_voos)
   
   # Fechar Chrome
   driver.quit()
 
-url = 'https://www.cvc.com.br/passagens/v2/search/SAO/RIO?Date1=2023-11-01&Date2=2023-11-04&ADT=1&CHD=0&INF=0&CLA=all&STO=PACKAGE&MCO1=S%C3%A3o%20Paulo%20-%20SP%20,%20Brasil&MCD1=Rio%20de%20Janeiro%20-%20RJ%20,%20Brasil'
-scraperCVC(url)
+# #Testar script
+# url = 'https://www.cvc.com.br/passagens/v2/search/SAO/RIO?Date1=2023-11-01&Date2=2023-11-04&ADT=1&CHD=0&INF=0&CLA=all&STO=PACKAGE&MCO1=S%C3%A3o%20Paulo%20-%20SP%20,%20Brasil&MCD1=Rio%20de%20Janeiro%20-%20RJ%20,%20Brasil'
+# scraperCVC(url)
