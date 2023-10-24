@@ -11,9 +11,6 @@ def inserir_voos_bd(dados):
     username = os.getenv("USER")
     password = os.getenv("PASSWORD")
     
-    print(server, database, username, password)
-    
-    
     # Crie uma conexão pyodbc
     conn = pyodbc.connect(f"DRIVER={{ODBC Driver 17 for SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password}")
 

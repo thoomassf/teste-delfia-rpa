@@ -1,26 +1,26 @@
-## 💻 Getting started
+### Requisitos
 
-### Requirements
-
-- You need to install both:
-[Python](https://www.python.org/downloads/)
-[Docker](https://www.docker.com/products/docker-desktop/)
+- Ferramentas necessárias:
+[Python](https://www.python.org/downloads/),
+[Docker](https://www.docker.com/products/docker-desktop/),
 [SQL Server Management Studio](https://learn.microsoft.com/pt-br/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16#download-ssms)
 
 
-**Clone the project and access the folder**
+**Clone o projeto e acesse a pasta**
 
 ```bash
 $ git clone https://github.com/thoomassf/teste-delfia-rpa.git && cd teste-delfia-rpa
 $ gh repo clone teste-delfia-rpa.git && cd teste-delfia-rpa
 ```
 
-**Install and run Docker**
+**Instalar contêiner Docker**
 
 ```bash
-# Install docker image SQL Server
 $ docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<senha>" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest
-# Criar database and table
+```
+
+**Criar base de dados**
+```bash
 $ CREATE DATABASE DB_Voos
   GO
   USE DB_Voos
@@ -39,20 +39,11 @@ $ CREATE DATABASE DB_Voos
   GO
 ```
 
-**Follow the steps below**
+**Etapas para executar o script**
 
 ```bash
-# Install dependencies
+# Instalar dependencias do projeto
 $ pip install pyodbc python-dotenv selenium datetime
-# Start the project
+# Executar 
 $ python main.py
-# Start the server
-$ npm run dev:server
 ```
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-by Thomas Farias 👋 [Check out my LinkedIn](https://www.linkedin.com/in/thomas-sf)

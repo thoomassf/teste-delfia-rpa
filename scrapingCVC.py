@@ -8,7 +8,7 @@ from selenium.common.exceptions import NoSuchElementException
 
 from converter_data import converter_data
 from inserir_banco import inserir_voos_bd
-from conveter_horas_mins import converter_horas_para_minutos
+from converter_horas_mins import converter_horas_para_minutos
 
 def scraperCVC(url):
   driver = webdriver.Chrome()
@@ -74,14 +74,17 @@ def scraperCVC(url):
       elemento = driver.find_element(By.XPATH, path)
       taxa_servico = elemento.text.replace('R$', '').strip()
       
-      
       texto = elemento_completo.text
-      # Tempo de voo em minutos
-      match = re.search(r'Total: (\S+)', texto)
-      if match:
-        tempo_voo_horas = match.group(1)
+      
+      # # Tempo de voo em minutos
+      # Use regex para encontrar o tempo no texto
+      padrao = r'Total: (\d+h \d+min)'
+      correspondencias = re.search(padrao, texto)
+
+      if correspondencias:
+          tempo_voo_horas = correspondencias.group(1)
       else:
-        tempo_voo_horas = ""
+          print("Tempo não encontrado na string.")
       # Conveter tempo de voo de horas para minutos
       tempo_voo_min = converter_horas_para_minutos(tempo_voo_horas)
       
