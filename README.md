@@ -21,7 +21,7 @@ $ docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<senha>" -p 1433:1433 -d m
 
 **Criar base de dados**
 ```bash
-$ CREATE DATABASE DB_Voos
+  CREATE DATABASE DB_Voos
   GO
   USE DB_Voos
   GO
